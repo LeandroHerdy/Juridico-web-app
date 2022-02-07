@@ -1,6 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.views.generic.edit import CreateView
+from .models import Funcionario
 
 
-def home(request):
-    return HttpResponse("Olá, mundo!")
+class FuncionarioCreate(CreateView):
+    model = Funcionario
+    fields = ['nome']

@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import home
+from .views import FuncionarioCreate
+
 
 urlpatterns = [
-    path('', home)
+    path('novo/', FuncionarioCreate.as_view(), name='create funcionario'),
 ]
