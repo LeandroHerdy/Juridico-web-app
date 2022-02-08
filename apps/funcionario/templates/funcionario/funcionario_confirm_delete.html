@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1>Deletar Funcionário <h1> <br>
+
+<form method="POST">
+    {% csrf_token %}
+    <h4> Confirma a exclusão do {{ object }}</h4>
+    {{ form }}
+    <button type="submit" class="btn btn-danger"> Confirmar</button>
+</form>
+{% endblock %}
