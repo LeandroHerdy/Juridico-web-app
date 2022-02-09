@@ -22,12 +22,13 @@ class DepartamentoList(ListView):
 
     def get_queryset(self):
         empresa_logada = self.request.user.funcionario.empresa
-        queryset = Departamento.objects.filter(empresa=empresa_logada)
+        queryset = Departamento.objects.filter(empresa=empresa_logada).order_by('nome')
         return queryset
 
 
 class DepartamentoEdit(UpdateView):
-    model = ['nome']
+    model = Departamento
+    fields = ['nome']
 
 
 class DepartamentoDelete(DeleteView):

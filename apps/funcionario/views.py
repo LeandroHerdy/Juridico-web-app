@@ -11,7 +11,7 @@ class FuncionarioList(ListView):
 
     def get_queryset(self):
         empresa_logada = self.request.user.funcionario.empresa
-        queryset = Funcionario.objects.filter(empresa=empresa_logada)
+        queryset = Funcionario.objects.filter(empresa=empresa_logada).order_by('nome')
         return queryset
 
 
@@ -33,7 +33,7 @@ class FuncionarioCreate(CreateView):
         empresa_logada = self.request.user.funcionario.empresa
         queryset = Empresa.objects.filter(empresa=empresa_logada)
         empresa = queryset
-        return ('ok')
+        return 'ok'
 
     def form_valid(self, form):
         funcionario = form.save(commit=False)
