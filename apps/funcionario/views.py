@@ -1,11 +1,8 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponse
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from .models import Funcionario, Empresa
-from .. import empresa
 
 
 class FuncionarioList(ListView):
@@ -25,7 +22,7 @@ class FuncionarioEdit(UpdateView):
 
 class FuncionarioDelete(DeleteView):
     model = Funcionario
-    success_url = reverse_lazy('list_funcionario')
+    success_url = reverse_lazy('list_departamento')
 
 
 class FuncionarioCreate(CreateView):
@@ -33,11 +30,10 @@ class FuncionarioCreate(CreateView):
     fields = ['nome', 'cpf', 'empresa', 'departamento']
 
     def get_queryset(self):
-        if not Empresa:
-            empresa_logada = self.request.user.funcionario.empresa
-            queryset = Empresa.objects.filter(empresa=empresa_logada)
-            empresa = queryset
-            return ('ok')
+        empresa_logada = self.request.user.funcionario.empresa
+        queryset = Empresa.objects.filter(empresa=empresa_logada)
+        empresa = queryset
+        return ('ok')
 
     def form_valid(self, form):
         funcionario = form.save(commit=False)
