@@ -6,9 +6,12 @@ from .models import Funcionario, Empresa
 
 
 class FuncionarioList(ListView):
-    model = Funcionario
+    queryset = Funcionario.objects.all()
+    context_object_name = 'funcionario'
+    template_name = 'funcionario/funcionario_list.html'
+    '''model = Funcionario
     fields = ['nome', 'cpf', 'empresa', 'departamento']
-
+'''
     def get_queryset(self):
         empresa_logada = self.request.user.funcionario.empresa
         queryset = Funcionario.objects.filter(empresa=empresa_logada).order_by('nome')

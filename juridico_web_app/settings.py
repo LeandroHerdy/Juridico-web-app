@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.processo',
     'apps.publicacao',
     'apps.registro_hora',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [

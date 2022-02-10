@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Lista de Processos</h2> <br>
+    {% for processo in object_list %}
+        <a href="{% url 'update_processo' processo.id %}">
+            {{ processo }}
+        </a>
+        <a href="{% url 'delete_processo' processo.id %}">
+            Deletar
+        </a>
+        <br>
+    {% endfor %}
+    <a href="{% url 'create_processo' %}" class="btn btn-info">Cadastrar Processo</a>
+{% endblock %}

@@ -7,7 +7,8 @@
           Olá {{ usuario.funcionario.nome }}
         </div>
         <div class="col">
-          Olá {{ usuario.funcionario.nome }}
+            <a href="{% url 'create_processo' %}">Novo Processo</a> <br>
+            <a href="{% url 'list_processo' %}">Listar Processo</a>
         </div>
         <div class="col">
           Olá {{ usuario.funcionario.nome }}

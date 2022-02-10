@@ -18,7 +18,9 @@ class DepartamentoCreate(CreateView):
 
 
 class DepartamentoList(ListView):
-    models = Departamento
+    queryset = Departamento.objects.all()
+    context_object_name = 'Departamento'
+    template_name = 'departamento/departamento_list.html'
 
     def get_queryset(self):
         empresa_logada = self.request.user.funcionario.empresa
