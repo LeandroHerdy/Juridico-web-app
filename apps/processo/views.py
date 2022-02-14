@@ -21,6 +21,11 @@ class ProcessoListView(ListView):
     context_object_name = 'processo'
     template_name = 'processo/processo_list.html'
 
+    def get_queryset(self):
+        empresa_logada = self.request.user.funcionario.empresa
+        queryset = Processo.objects.filter(empresa=empresa_logada)
+        return queryset
+
 
 class ProcessoUpdateView(UpdateView):
     model = Processo

@@ -11,7 +11,8 @@
             <a href="{% url 'list_processo' %}">Listar Processo</a>
         </div>
         <div class="col">
-          Olá {{ usuario.funcionario.nome }}
+          <a href="{% url 'create_publicacao' %}">Novo Publicação</a> <br>
+          <a href="{% url 'list_publicacao' %}">Listar Publicação</a>
         </div>
         <div class="col">
           <a href="{% url 'create_departamento' %}">Novo Departamento</a> <br>

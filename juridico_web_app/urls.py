@@ -23,4 +23,5 @@ urlpatterns = [
     path('funcionario/', include('apps.funcionario.urls')),
     path('departamento/', include('apps.departamento.urls')),
     path('processo/', include('apps.processo.urls')),
+    path('publicacao/', include('apps.publicacao.urls')),
 ]

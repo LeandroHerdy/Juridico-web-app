@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+     <h2> Lista de Publicação </h2> <br>
+        {% for publicacao in object_list %}
+            <a href="{% url 'update_publicacao' publicacao.id%}">
+                {{ publicacao }}
+            </a>
+            <a href="{% url 'delete_publicacao' publicacao.id %}">
+                Deletar
+            </a>
+        <br>
+    {% endfor %}
+    <a href="{% url 'create_publicacao' %}" class="btn btn-info">Cadastrar Publicação</a>
+{% endblock %}
